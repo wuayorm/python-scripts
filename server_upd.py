@@ -1,6 +1,7 @@
 #!/bin/python
 #
 # Script to check for server updates and create a JIRA ticket on JIRA Service Desk
+# Change : Add variables, remove txt files and search for updates.
 # Created by : Eduardo Rocha
 # Version : 1.0
 # Modified : 10.09.2018

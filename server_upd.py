@@ -6,3 +6,17 @@
 # Modified : 10.09.2018
 #
 
+import os, shutil, socket, subprocess, shlex
+
+# Declare variables
+
+description="h1.{color:#ff0000}" + socket.gethostname() + ".esc13.net{color}" + "\\u000a"
+folder_path="/home/erocha"
+cmd_line='rm ' + '-f' + ' ' + folder_path + '/' + 'bashscripts' + '/' + '*.txt'
+
+os.system(cmd_line)
+
+os.system('sudo yum update --assumeno > /home/erocha/bashscripts/centos-update.txt')
+os.system('sudo yum update --assumeno | grep "Upgrade" > /home/erocha/bashscripts/updates.txt')
+
+

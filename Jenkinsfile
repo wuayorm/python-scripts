@@ -20,6 +20,9 @@ node {
                 sh 'scp server_upd.py erocha@test-wiki.esc13.net:/home/erocha/bashscripts'
 
                 sh 'ssh erocha@test-crowd.esc13.net chmod 755 /home/erocha/bashscripts/server_upd.py'
+                sh 'ssh erocha@test-jira.esc13.net chmod 755 /home/erocha/bashscripts/server_upd.py'
+                sh 'ssh erocha@test-atldb.esc13.net chmod 755 /home/erocha/bashscripts/server_upd.py'
+                sh 'ssh erocha@test-wiki.esc13.net chmod 755 /home/erocha/bashscripts/server_upd.py'
 
 
                 echo 'Deployment completed successfully!!!'

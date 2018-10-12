@@ -4,7 +4,7 @@
 # Change : Add functions to read and create files, add a log file
 # Created by : Eduardo Rocha
 # Version : 1.0
-# Modified : 10.11.2018
+# Modified : 10.12.2018
 #
 
 import os, shutil, socket, subprocess, shlex

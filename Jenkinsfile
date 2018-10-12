@@ -14,6 +14,6 @@ node {
         }
         stage('Deploy') {
                 echo 'Deploying....'
-                sh 'scp server_upd.py erocha@test-crowd.esc13.net:/home/erocha'
+                sh 'scp server_upd.py erocha@test-crowd.esc13.net:/home/erocha/bashscripts'
         }
 }

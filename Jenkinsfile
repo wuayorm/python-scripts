@@ -1,7 +1,6 @@
 node {
 
-    // Scripted pipeline Version 1.1
-    // agent any
+    // Scripted pipeline Version 2.0
 
 
         stage('Build') {
@@ -26,14 +25,14 @@ node {
         stage('Deploy') {
                 echo '*****************  Deploying to Production environment.  *****************'
                 sh 'scp server_upd.py erocha@crowd.esc13.net:/home/erocha/bashscripts'
-                /* sh 'scp server_upd.py erocha@jira.esc13.net:/home/erocha/bashscripts'
+                sh 'scp server_upd.py erocha@jira.esc13.net:/home/erocha/bashscripts'
                 sh 'scp server_upd.py erocha@atldb.esc13.net:/home/erocha/bashscripts'
-                sh 'scp server_upd.py erocha@wiki.esc13.net:/home/erocha/bashscripts' */
+                sh 'scp server_upd.py erocha@wiki.esc13.net:/home/erocha/bashscripts' 
 
                 sh 'ssh erocha@crowd.esc13.net chmod 755 /home/erocha/bashscripts/server_upd.py'
-                /*sh 'ssh erocha@jira.esc13.net chmod 755 /home/erocha/bashscripts/server_upd.py'
+                sh 'ssh erocha@jira.esc13.net chmod 755 /home/erocha/bashscripts/server_upd.py'
                 sh 'ssh erocha@atldb.esc13.net chmod 755 /home/erocha/bashscripts/server_upd.py'
-                sh 'ssh erocha@wiki.esc13.net chmod 755 /home/erocha/bashscripts/server_upd.py' */
+                sh 'ssh erocha@wiki.esc13.net chmod 755 /home/erocha/bashscripts/server_upd.py'
 
 
                 echo 'Deployment to Production environment completed successfully!!!'

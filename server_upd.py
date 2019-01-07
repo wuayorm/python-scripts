@@ -3,11 +3,11 @@
 # Script to check for server updates and create a JIRA ticket on JIRA Service Desk
 # Change : Add functions to read and create files, add a log file
 # Created by : Eduardo Rocha
-# Version : 1.0
-# Modified : 10.12.2018
+# Version : 1.5
+# Modified : 01.07.2019
 #
 
-import os, shutil, socket, subprocess, shlex
+import os, shutil, socket, subprocess, shlex, datetime
 
 # Declare variables
 
@@ -20,20 +20,22 @@ cmd_line='rm ' + '-f' + ' ' + folder_path + '/' + 'bashscripts' + '/' + '*.txt'
 
 
 def read_file():
+    global description
 
     # Open the file and read the contents
-    f=open(folder_path + "/bashscripts/centos-update.txt", "r")
+    f=open(folder_path + "/bashscripts/ticket.txt", "r")
     # Readlines reads the individual line into a list
     fl =f.readlines()
     for file_row in fl:
        description=description + file_row + "\u000a"
-
     f.close()
 
 return
 
-def create_ticket():
+def create_ticket(summary):
     # Create the JIRA ticket in JSON format
+
+    global description
 
     f=open(folder_path + "/bashscripts/jira.txt","w+")
     f.write("{ \r\n")
@@ -54,9 +56,12 @@ return
 
 def log_file(args):
     # Log the event
-    
+
+    now=datetime.datetime.now()
+    date_log=now.strftime("%c")
     flog=open(folder_path + "/bashscripts/updates.log","a+")
-    flog.write(os.system('date') + args)
+    #flog.write(os.system('date') + args)
+    flog.write(date_log + args + '\r\n')
     flog.close()
 
 return    
@@ -74,14 +79,14 @@ def main():
         os.system('/home/erocha/bashscripts/ticket.sh')
         summary="Server Updates. -> " + socket.getfqdn()
         read_file()
-        create_ticket()
-        log_file("regular update")
+        create_ticket(summary)
+        log_file(" Regular update")
     else:
-        log_file("No updates")
+        log_file(" No updates")
 
 
 # Main 
-if __name__ == "_main_":
+if __name__ == "__main__":
      main()
 
 

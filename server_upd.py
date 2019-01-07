@@ -30,7 +30,7 @@ def read_file():
        description=description + file_row + "\u000a"
     f.close()
 
-return
+    return
 
 def create_ticket(summary):
     # Create the JIRA ticket in JSON format
@@ -50,9 +50,9 @@ def create_ticket(summary):
     f.write("}\r\n")
     f.write("}\r\n")
     f.write("}\r\n")
-
     f.close()
-return
+
+    return
 
 def log_file(args):
     # Log the event
@@ -64,7 +64,7 @@ def log_file(args):
     flog.write(date_log + args + '\r\n')
     flog.close()
 
-return    
+    return    
 
 
 # Main function

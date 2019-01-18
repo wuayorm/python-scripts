@@ -4,7 +4,7 @@ node {
 
 
         stage('Build') {
-                echo 'Building..'
+                echo 'Building...'
                 checkout scm
                // build job: 'serverscripts'
         }
